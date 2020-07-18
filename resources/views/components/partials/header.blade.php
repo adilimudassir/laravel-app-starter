@@ -1,8 +1,8 @@
 <header class="header">
 	<div class="logo-container">
 		<a href="{{ route('dashboard') }}" class="logo">
-			<span class="font-16">
-				Admin<strong>CP</strong>
+			<span class="text-center h2">
+				{{ config('app.name') }}
 			</span>
 		</a>
 		<div class="d-md-none toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html"

@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 require 'routes/auth.php';
 
-Route::group([], function () {
+Route::group(['middleware' => 'verified'], function () {
+    // includeRouteFiles(__DIR__.'/backend/');
     require 'routes/dashboard.php';
     require 'routes/users.php';
     require 'routes/roles.php';
