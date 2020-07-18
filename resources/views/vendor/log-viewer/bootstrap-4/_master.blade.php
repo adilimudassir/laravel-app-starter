@@ -233,7 +233,7 @@
                     </a>
                 </li>
                 <li class="nav-item {{ Route::is('log-viewer::logs.list') ? 'active' : '' }}">
-                    <a href="{{ route('backend.dashboard') }}" class="nav-link">
+                    <a href="{{ route('dashboard') }}" class="nav-link">
                         <i class="fa fa-home"></i> Back to App
                     </a>
                 </li>

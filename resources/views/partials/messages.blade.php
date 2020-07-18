@@ -1,5 +1,5 @@
 <div class="row justify-content-center text-center">
-    <div class="col-md-9">
+    <div class="col-md-12">
         {{--
         @if($errors->any())
             <x-utils.alert type="danger">

@@ -13,39 +13,39 @@ class LoginTest extends TestCase
 
     public function testUserCanSeeLoginForm()
     {
-        $response = $this->get(route('frontend.auth.login'));
+        $response = $this->get(route('auth.login'));
         $response->assertSuccessful();
-        $response->assertViewIs('frontend.auth.login');
+        $response->assertViewIs('auth.login');
     }
 
     public function testUserCannotViewLoginFormWhenAuthenticated()
     {
         $user = factory(User::class)->make();
-        $response = $this->actingAs($user)->get(route('frontend.auth.login'));
-        $response->assertRedirect(route('frontend.dashboard'));
+        $response = $this->actingAs($user)->get(route('auth.login'));
+        $response->assertRedirect(route('dashboard'));
     }
 
     public function testUserCanLoginWithCorrectCredentials()
     {
         $user = factory(User::class)->create();
 
-        $response = $this->post(route('frontend.auth.login'), [
+        $response = $this->post(route('auth.login'), [
             'email' => $user->email,
             'password' => 'secret',
         ]);
-        $response->assertRedirect(route('frontend.dashboard'));
+        $response->assertRedirect(route('dashboard'));
         $this->assertAuthenticatedAs($user);
     }
 
     public function testUserCannotLoginWithIncorrectCredentials()
     {
         $user = factory(User::class)->make();
-        $response = $this->from(route('frontend.auth.login'))->post(route('frontend.auth.login'), [
+        $response = $this->from(route('auth.login'))->post(route('auth.login'), [
             'email' => $user->email,
             'password' => 'wrong-password',
         ]);
 
-        $response->assertRedirect(route('frontend.auth.login'));
+        $response->assertRedirect(route('auth.login'));
         $response->assertSessionHasErrors('email');
         $this->assertTrue(session()->hasOldInput('email'));
         $this->assertFalse(session()->hasOldInput('password'));
@@ -55,12 +55,12 @@ class LoginTest extends TestCase
     public function testRememberMeFunctionality()
     {
         $user = factory(User::class)->create();
-        $response = $this->post(route('frontend.auth.login'), [
+        $response = $this->post(route('auth.login'), [
             'email' => $user->email,
             'password' => 'secret',
             'remember' => 'on',
         ]);
-        $response->assertRedirect(route('frontend.dashboard'));
+        $response->assertRedirect(route('dashboard'));
         $this->assertAuthenticatedAs($user);
         $response->assertCookie(
             Auth::guard()->getRecallerName(),

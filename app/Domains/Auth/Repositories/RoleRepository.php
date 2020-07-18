@@ -3,7 +3,7 @@
 namespace Domains\Auth\Repositories;
 
 use App\Repositories\BaseRepository;
-use Backend\Http\Requests\RoleFormRequest;
+use App\Http\Requests\RoleFormRequest;
 use Domains\Auth\Events\RoleCreated;
 use Domains\Auth\Events\RoleUpdated;
 use Domains\Auth\Exceptions\RoleException;

@@ -4,7 +4,7 @@ namespace Domains\Auth\Repositories;
 
 use App\Exceptions\GeneralException;
 use App\Repositories\BaseRepository;
-use Backend\Http\Requests\UserFormRequest;
+use App\Http\Requests\UserFormRequest;
 use Domains\Auth\Events\UserCreated;
 use Domains\Auth\Events\UserUpdated;
 use Domains\Auth\Exceptions\UserException;

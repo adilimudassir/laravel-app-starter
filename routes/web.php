@@ -13,22 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*
- * Frontend Routes
- */
-Route::group(['as' => 'frontend.'], function () {
-    // includeRouteFiles(__DIR__.'/frontend/');
-    require 'frontend/auth.php';
-    require 'frontend/home.php';
-    require 'frontend/account.php';
-});
+require 'routes/auth.php';
 
-/*
- * Backend Routes
- */
-Route::group(['prefix' => 'admin', 'as' => 'backend.', 'middleware' => ['access-backend', 'verified']], function () {
-    // includeRouteFiles(__DIR__.'/backend/');
-    require 'backend/dashboard.php';
-    require 'backend/users.php';
-    require 'backend/roles.php';
+Route::group([], function () {
+    require 'routes/dashboard.php';
+    require 'routes/users.php';
+    require 'routes/roles.php';
 });

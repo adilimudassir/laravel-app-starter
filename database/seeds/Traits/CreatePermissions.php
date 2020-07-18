@@ -7,9 +7,6 @@ trait CreatePermissions
 {
     protected $permissions = [
         [
-            '*' => [
-                'access-backend',
-            ],
             'users' => [
                 'impersonate',
             ],
