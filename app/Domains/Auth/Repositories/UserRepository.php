@@ -2,7 +2,7 @@
 
 namespace Domains\Auth\Repositories;
 
-use App\Exceptions\GeneralException;
+use Domains\General\Exceptions\GeneralException;
 use App\Repositories\BaseRepository;
 use App\Http\Requests\UserFormRequest;
 use Domains\Auth\Events\UserCreated;

@@ -2,7 +2,7 @@
 
 namespace Domains\Auth\Exceptions;
 
-use App\Exceptions\GeneralException;
+use Domains\General\Exceptions\GeneralException;
 
 class UserException extends GeneralException
 {
