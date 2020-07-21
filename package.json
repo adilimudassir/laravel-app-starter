@@ -19,7 +19,7 @@
         "jquery-browser": "^1.10.2-1",
         "jquery.placeholder": "^2.0.7",
         "laravel-mix": "^5.0.1",
-        "lodash": "^4.17.13",
+        "lodash": "^4.17.19",
         "magnific-popup": "^1.1.0",
         "nanoscroller": "^0.8.7",
         "popper.js": "^1.16.1",
