@@ -1,7 +1,11 @@
 <?php
 
+namespace Database\Seeders\Auth;
+
 use Domains\Auth\Models\Role;
 use Illuminate\Database\Seeder;
+use Database\Seeders\Traits\CreatePermissions;
+use Database\Seeders\Traits\DisableForeignKeys;
 
 class PermissionRoleTableSeeder extends Seeder
 {

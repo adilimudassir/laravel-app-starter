@@ -1,6 +1,10 @@
 <?php
+namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Database\Seeders\Auth\UserRoleSeeder;
+use Database\Seeders\Auth\UserTableSeeder;
+use Database\Seeders\Auth\PermissionRoleTableSeeder;
 
 class DatabaseSeeder extends Seeder
 {

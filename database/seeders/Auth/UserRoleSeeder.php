@@ -1,7 +1,10 @@
 <?php
 
+namespace Database\Seeders\Auth;
+
 use Domains\Auth\Models\User;
 use Illuminate\Database\Seeder;
+use Database\Seeders\Traits\DisableForeignKeys;
 
 class UserRoleSeeder extends Seeder
 {

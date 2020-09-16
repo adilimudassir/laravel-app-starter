@@ -31,7 +31,7 @@ class UserFormRequest extends FormRequest
         ];
 
         if (Request::METHOD_POST) {
-            $data['password'] = PasswordRules::register(request()->email);
+            $data['password'] = 'required|confirmed';
             $data['email'] = 'required|email';
         }
 
