@@ -28,7 +28,6 @@ class UserFormRequest extends FormRequest
         $data = [
             'name' => 'required|string',
             'email' => 'required|email|unique:users',
-            'phone' => 'required|digits:11|unique:users',
             'roles' => 'required',
             'password' => 'required|confirmed'
         ];
