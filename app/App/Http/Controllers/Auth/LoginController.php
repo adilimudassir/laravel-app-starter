@@ -1,13 +1,12 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use Domains\Auth\Events\UserLoggedIn;
 use Domains\Auth\Events\UserLoggedOut;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -79,7 +78,7 @@ class LoginController extends Controller
                 ->withFlashDanger('Your account is not active.');
         }
 
-        // event(new UserLoggedIn($user));
+        event(new UserLoggedIn($user));
 
         // if (config('boilerplate.access.options.single_login')) {
         //     auth()->logoutOtherDevices($request->password);
