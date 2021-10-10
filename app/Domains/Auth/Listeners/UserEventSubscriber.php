@@ -3,9 +3,9 @@
 namespace Domains\Auth\Listeners;
 
 use Domains\Auth\Events\UserCreated;
+use Domains\Auth\Events\UserUpdated;
 use Domains\Auth\Events\UserLoggedIn;
 use Domains\Auth\Events\UserLoggedOut;
-use Domains\Auth\Events\UserUpdated;
 
 class UserEventSubscriber
 {
@@ -48,6 +48,12 @@ class UserEventSubscriber
     public function onCreated($event)
     {
         \Log::info('User Created: '.$event->user->name.'. By: '.optional(request()->user())->name ?? $event->user->name);
+
+        if (config('access.confirm_email') && !$event->user->hasVerifiedEmail()) {
+            $event->user?->sendEmailVerificationNotification();
+        } else {
+            $event->user?->markEmailAsVerified();
+        }
     }
 
     /**

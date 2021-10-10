@@ -7,20 +7,14 @@ use App\Http\Requests\UserPasswordFormRequest;
 
 class UserPasswordController
 {
-    /**
-     *  @var [UserRepository]
-     */
-    private UserRepository $userRepository;
 
     /**
      * create an instance of the controller.
      *
      * @param UserRepository $userRepository
      */
-    public function __construct(UserRepository $userRepository)
-    {
-        $this->userRepository = $userRepository;
-    }
+    public function __construct(private UserRepository $userRepository)
+    {}
 
     public function edit($id = null)
     {

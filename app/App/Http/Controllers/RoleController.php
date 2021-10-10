@@ -4,27 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RoleFormRequest;
-use Domains\Auth\Repositories\PermissionRepository;
 use Domains\Auth\Repositories\RoleRepository;
+use Domains\Auth\Repositories\PermissionRepository;
 
 class RoleController extends Controller
 {
-    /**
-     * Undocumented variable.
-     *
-     * @var [RoleRepository]
-     */
-    protected $roleRepository;
-
     /**
      * create an instance of the controller.
      *
      * @param RoleRepository $roleRepository
      */
-    public function __construct(RoleRepository $roleRepository)
-    {
-        $this->roleRepository = $roleRepository;
-    }
+    public function __construct(private RoleRepository $roleRepository)
+    {}
 
     public function index()
     {
@@ -92,7 +83,7 @@ class RoleController extends Controller
     {
         $this->authorize('delete-roles');
 
-        $this->roleRepository->delete($id);
+        $this->roleRepository->deleteById($id);
 
         return redirect()
             ->route('roles.index')
