@@ -10,21 +10,12 @@ use Domains\Auth\Repositories\UserRepository;
 class UserController extends Controller
 {
     /**
-     * Undocumented variable.
-     *
-     * @var [UserRepository]
-     */
-    protected $userRepository;
-
-    /**
      * create an instance of the controller.
      *
      * @param UserRepository $userRepository
      */
-    public function __construct(UserRepository $userRepository)
-    {
-        $this->userRepository = $userRepository;
-    }
+    public function __construct(private UserRepository $userRepository)
+    {}
 
     public function index()
     {
@@ -92,7 +83,7 @@ class UserController extends Controller
     {
         $this->authorize('delete-users');
 
-        $this->userRepository->delete($id);
+        $this->userRepository->deleteById($id);
 
         return redirect()
             ->route('users.index')

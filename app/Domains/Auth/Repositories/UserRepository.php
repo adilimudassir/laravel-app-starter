@@ -81,7 +81,7 @@ class UserRepository extends BaseRepository
      * @return User
      * @throws GeneralException
      */
-    public function delete($id): User
+    public function deleteById($id): User
     {
         $user = $this->getById($id);
 
