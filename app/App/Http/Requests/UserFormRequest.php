@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace Backend\Http\Requests;
 
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
@@ -15,7 +15,7 @@ class UserFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return auth()->user()->can('update-users');
+        return auth()->user()->can('create-users');
     }
 
     /**
@@ -28,21 +28,18 @@ class UserFormRequest extends FormRequest
         $data = [
             'name' => 'required|string',
             'email' => 'required|email|unique:users',
+            'roles' => 'required',
+            'password' => 'required|confirmed'
         ];
 
-        if (Request::METHOD_POST) {
-            $data['password'] = 'required|confirmed';
-            $data['email'] = 'required|email';
+        if (Request::isMethod('POST')) {
         }
 
-        if (Request::METHOD_PATCH) {
+        if (Request::isMethod('PATCH')) {
             $data['email'] = 'required|email';
+            $data['phone'] = 'required|digits:11';
             $data['password'] = '';
         }
-
-        // if (Request::METHOD_PATCH && filled(request()->password)) {
-        //     $data['password'] = PasswordRules::changePassword(request()->email);
-        // }
 
         return $data;
     }

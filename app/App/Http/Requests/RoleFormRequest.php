@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Requests;
+namespace Backend\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Http\FormRequest;
 
 class RoleFormRequest extends FormRequest
 {
@@ -32,10 +32,22 @@ class RoleFormRequest extends FormRequest
             'name' => 'required|string|unique:roles',
         ];
 
-        if (Request::METHOD_PATCH) {
+        if (Request::isMethod('PATCH')) {
             $data['name'] = 'required|string';
         }
 
         return $data;
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.unique' => 'A role with this name already exists',
+        ];
     }
 }
