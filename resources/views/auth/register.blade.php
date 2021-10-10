@@ -11,7 +11,7 @@
             <h2 class="title text-uppercase font-weight-bold m-0"><i class="fas fa-user mr-1"></i> Register</h2>
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ route('auth.register') }}">
+            <form method="POST" action="{{ route('register') }}">
                 @csrf
                 <div class="form-group mb-3">
                     <x-forms.text name="name" />
@@ -30,7 +30,7 @@
                         <button type="submit" class="btn btn-block btn-primary mt-2">Register</button>
                     </div>
                 </div>
-                <a class="btn btn-link text-center" href="{{ route('auth.login') }}">
+                <a class="btn btn-link text-center" href="{{ route('login') }}">
                     Already have account?
                 </a>
             </form>

@@ -31,7 +31,7 @@ class UsersTable extends DataTableComponent
                 ->searchable()
                 ->sortable(),
             Column::make('Actions')
-                ->format(fn ($row) => view('users.actions')->withModel($row)),
+                ->format(fn ($value, $column, $row) => view('users.actions')->withModel($row)),
         ];
     }
 }

@@ -11,7 +11,7 @@
             <h2 class="title text-uppercase font-weight-bold m-0"><i class="fas fa-user mr-1"></i> Sign In</h2>
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ route('auth.login') }}">
+            <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="form-group mb-3">
                     <x-forms.email name="email" />
@@ -34,8 +34,8 @@
                         <button type="submit" class="btn btn-primary mt-2">Sign In</button>
                     </div>
                 </div>
-                @if (Route::has('auth.password.request'))
-                <a class="btn btn-link text-center" href="{{ route('auth.password.request') }}">
+                @if (Route::has('password.request'))
+                <a class="btn btn-link text-center" href="{{ route('password.request') }}">
                     Forgot Your Password?
                 </a>
                 @endif

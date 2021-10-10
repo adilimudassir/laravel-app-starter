@@ -36,7 +36,7 @@ class RolesTable extends DataTableComponent
             Column::make('Number of Users', 'users_count')
                 ->sortable(),
             Column::make('Actions')
-                ->format(fn ($row) => view('backend.roles.actions')->withModel($row)),
+                ->format(fn ($value, $column, $row) => view('roles.actions')->withModel($row)),
         ];
     }
 }

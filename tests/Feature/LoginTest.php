@@ -13,15 +13,15 @@ class LoginTest extends TestCase
 
     public function testUserCanSeeLoginForm()
     {
-        $response = $this->get(route('auth.login'));
+        $response = $this->get(route('login'));
         $response->assertSuccessful();
-        $response->assertViewIs('auth.login');
+        $response->assertViewIs('login');
     }
 
     public function testUserCannotViewLoginFormWhenAuthenticated()
     {
         $user = factory(User::class)->make();
-        $response = $this->actingAs($user)->get(route('auth.login'));
+        $response = $this->actingAs($user)->get(route('login'));
         $response->assertRedirect(route('dashboard'));
     }
 
@@ -29,7 +29,7 @@ class LoginTest extends TestCase
     {
         $user = factory(User::class)->create();
 
-        $response = $this->post(route('auth.login'), [
+        $response = $this->post(route('login'), [
             'email' => $user->email,
             'password' => 'secret',
         ]);
@@ -40,12 +40,12 @@ class LoginTest extends TestCase
     public function testUserCannotLoginWithIncorrectCredentials()
     {
         $user = factory(User::class)->make();
-        $response = $this->from(route('auth.login'))->post(route('auth.login'), [
+        $response = $this->from(route('login'))->post(route('login'), [
             'email' => $user->email,
             'password' => 'wrong-password',
         ]);
 
-        $response->assertRedirect(route('auth.login'));
+        $response->assertRedirect(route('login'));
         $response->assertSessionHasErrors('email');
         $this->assertTrue(session()->hasOldInput('email'));
         $this->assertFalse(session()->hasOldInput('password'));
@@ -55,7 +55,7 @@ class LoginTest extends TestCase
     public function testRememberMeFunctionality()
     {
         $user = factory(User::class)->create();
-        $response = $this->post(route('auth.login'), [
+        $response = $this->post(route('login'), [
             'email' => $user->email,
             'password' => 'secret',
             'remember' => 'on',

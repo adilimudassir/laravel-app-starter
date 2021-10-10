@@ -11,7 +11,7 @@
             <h2 class="title text-uppercase font-weight-bold m-0"><i class="fas fa-user mr-1"></i> Reset Password</h2>
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ route('auth.password.email') }}">
+            <form method="POST" action="{{ route('password.email') }}">
                 @csrf
                 <div class="form-group mb-3">
                     <x-forms.email name="email" />

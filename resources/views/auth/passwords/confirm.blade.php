@@ -23,8 +23,8 @@
                         <button type="submit" class="btn btn-block btn-primary mt-2">Confirm Password</button>
                     </div>
                 </div>
-                @if (Route::has('auth.password.request'))
-                <a class="btn btn-link text-center" href="{{ route('auth.password.request') }}">
+                @if (Route::has('password.request'))
+                <a class="btn btn-link text-center" href="{{ route('password.request') }}">
                     Forgot Your Password?
                 </a>
                 @endif
