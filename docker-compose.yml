@@ -55,6 +55,6 @@ services:
     networks: 
       - starter
 
-networks:
-  starter:
-    driver: bridge
+  networks:
+    starter:
+      driver: bridge
