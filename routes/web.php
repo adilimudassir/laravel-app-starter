@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-require 'routes/auth.php';
+// require 'routes/auth.php';
 
 Route::group(['middleware' => 'verified'], function () {
     // includeRouteFiles(__DIR__.'/backend/');
