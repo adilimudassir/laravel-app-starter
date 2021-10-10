@@ -16,8 +16,13 @@ class ProfileController extends Controller
         $this->middleware('auth');
     }
 
-    public function __invoke()
+    public function profile()
     {
-        return view('profile');
+        return view('profile.overview');
+    }
+
+    public function changePassword()
+    {
+        return view('profile.change-password');
     }
 }

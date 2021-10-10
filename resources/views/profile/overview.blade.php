@@ -1,4 +1,8 @@
-<x-partials.tabs>
+<x-layouts.app>
+    <x-slot name="title">
+        Profile
+    </x-slot>
+    <x-partials.tabs>
         <x-slot name="headers">
             <x-partials.tab-header id="overview" :active="true">
                 Overview
@@ -18,19 +22,13 @@
                     <tr>
                         <th>Status</th>
                         <td>
-                            <x-partials.badge 
-                                :type="$user->isActive() ? 'success' : 'danger'" 
-                                :name="$user->isActive() ? 'Active' : 'Inactive'" 
-                            />
+                            <x-partials.badge :type="$user->isActive() ? 'success' : 'danger'" :name="$user->isActive() ? 'Active' : 'Inactive'" />
                         </td>
                     </tr>
                     <tr>
                         <th>Confirmed</th>
                         <td>
-                            <x-partials.badge 
-                                :type="$user->hasVerifiedEmail() ? 'success' : 'danger'" 
-                                :name="$user->hasVerifiedEmail() ? 'Yes' : 'No'" 
-                            />
+                            <x-partials.badge :type="$user->hasVerifiedEmail() ? 'success' : 'danger'" :name="$user->hasVerifiedEmail() ? 'Yes' : 'No'" />
                         </td>
                     </tr>
                     <tr>
@@ -45,3 +43,4 @@
             </x-partials.tab-content>
         </x-slot>
     </x-partials.tabs>
+</x-layouts.app>

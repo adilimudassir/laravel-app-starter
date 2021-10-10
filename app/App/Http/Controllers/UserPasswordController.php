@@ -14,26 +14,22 @@ class UserPasswordController
      * @param UserRepository $userRepository
      */
     public function __construct(private UserRepository $userRepository)
-    {}
+    {
+    }
 
-    public function edit($id = null)
+    public function edit($id)
     {
         return view('users.change-password', [
-            'user' => $this->userRepository->getById($id ?? auth()->user()->id),
+            'user' => $this->userRepository->getById($id),
         ]);
     }
 
     public function update(UserPasswordFormRequest $request, $id = null)
     {
         $this->userRepository->updatePassword(
-            $this->userRepository->getById($id ?? auth()->user()->id),
+            $this->userRepository->getById($id),
             $request->all()
         );
-
-        if ($request->has('current_password')) {
-            return redirect()->route('dashboard')->withFlashSuccess('Password Updated');
-        } else {
-            return redirect()->route('users.index')->withFlashSuccess('Password Updated');
-        }
+        return redirect()->route('users.index')->withFlashSuccess('Password Updated');
     }
 }
