@@ -2,7 +2,7 @@
 
 namespace Database\Seeders\Auth;
 
-use Domains\Auth\Models\Role;
+use App\Models\Role;
 use Illuminate\Database\Seeder;
 use Database\Seeders\Traits\CreatePermissions;
 use Database\Seeders\Traits\DisableForeignKeys;

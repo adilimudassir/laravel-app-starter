@@ -1,7 +1,7 @@
 <?php
 namespace Database\Seeders\Auth;
 
-use Domains\Auth\Models\User;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Database\Seeders\Traits\DisableForeignKeys;

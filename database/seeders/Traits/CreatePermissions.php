@@ -2,7 +2,7 @@
 
 namespace Database\Seeders\Traits;
 
-use Domains\Auth\Models\Role;
+use App\Models\Role;
 use Spatie\Permission\Models\Permission;
 
 trait CreatePermissions
